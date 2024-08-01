@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: main
+    name: FlaskWeb_Deploy
     env: python
     plan: free  # veya başka bir plan
     buildCommand: "pip install -r requirements.txt"
