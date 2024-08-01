@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: your-app-name
+    name: main
     env: python
     plan: free  # veya başka bir plan
     buildCommand: "pip install -r requirements.txt"
