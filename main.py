@@ -90,15 +90,16 @@ def preprocess_data(data):
         df = df.drop(columns=['day_of_week'])
         
         df['merchant'] = df['merchant'].str.replace('fraud_', '')
+
+        for i in range(len(df)):
+            if df['category'].iloc[i] not in categories:
+                df.at[i, 'category'] = random.choice(categories)
         
-        if df['category'].iloc[0] not in categories:
-            df.at[0, 'category'] = random.choice(categories)
-        
-        if df['gender'].iloc[0] not in genders:
-            df.at[0, 'gender'] = random.choice(genders)
+            if df['gender'].iloc[i] not in genders:
+                df.at[i, 'gender'] = random.choice(genders)
             
-        if df['state'].iloc[0] not in states:
-            df.at[0, 'state'] = random.choice(states)
+            if df['state'].iloc[i] not in states:
+                df.at[i, 'state'] = random.choice(states)
         
         encoded_columns = pd.get_dummies(df[['category', 'gender', 'state']])
         
