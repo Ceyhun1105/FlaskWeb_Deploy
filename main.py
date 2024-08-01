@@ -150,7 +150,3 @@ def predict():
     except Exception as e:
         app.logger.error(f"Prediction error: {e}")
         return jsonify({"error": "Internal Server Error"}), 500    
-    
-
-if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
